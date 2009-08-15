@@ -25,7 +25,7 @@ get '/stylesheet.css' do
   sass :stylesheet
 end
 
-get '/resources/*/?' do
+get '/resources/*' do
   filename = ressource_path(params[:splat])
   if File.directory? filename
     dir_content(filename).to_json()
@@ -34,7 +34,7 @@ get '/resources/*/?' do
   end
 end
 
-put '/resources/*/?' do
+put '/resources/*' do
   filename = ressource_path(params[:splat])
   if params[:splat][-1] != '/'[0] # file
     begin
@@ -55,7 +55,7 @@ put '/resources/*/?' do
   end
 end
 
-delete '/resources/*/' do
+delete '/resources/*' do
   filename = ressource_path(params[:splat])
   if File.directory?(filename)
     begin
