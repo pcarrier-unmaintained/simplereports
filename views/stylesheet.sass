@@ -1,24 +1,38 @@
 body
   :color black
   :background-color white
+  :font-family "Helvetica Neue", Helvetica, sans-serif
+  :font-size 10pt
+h1,h2,h3
+  :font-family Impact
+  :font-weight normal
 div,h1
   :margin 0
   :padding 0
-.notice
+#noticebar
   :color white
-  :background-color #004080
   :margin 0
-.main
-  :display none
+  :padding 0.2em
+  :font-size 8pt
+  &.loading
+    :background-color #048
+  &.notice
+    :background-color #084
+  &.error
+    :background-color #F00
+#main_interface
+  &.hidden
+    :display none
   .browser
     :color white
     :background-color #333333
     :margin 1em
+    :padding 0.5em
     .files
       :width 49%
       :margin-left 50%
     .folders
       :width 49%
       :float left
-
+    %div(style="clear:both;")
 @import visualize.sass
