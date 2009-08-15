@@ -1,0 +1,21 @@
+!!! XML
+!!! 1.1
+
+%html{html_attrs('fr-fr')}
+  %head
+    %title=project_name
+    %link(rel='stylesheet' type='text/css' href='/stylesheet.css')/
+    /[if IE]
+      %script(src='/libs/excanvas.compiled.js')
+  %body
+    %h1=project_name
+    %p.notice Loading the whole JavaScript thingy...
+    %script(src='http://www.google.com/jsapi')
+    %script(src='http://api.simile-widgets.org/timeplot/1.1/timeplot-api.js')
+    :javascript
+      google.load('jquery', '1.3.2');
+      google.setOnLoadCallback(function() {
+        $.getScript("/js/main.js", function() {
+          wt_start();
+        });
+      });
