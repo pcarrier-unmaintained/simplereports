@@ -37,12 +37,20 @@ end
 put '/resources/*/?' do
   filename = ressource_path(params[:splat])
   if params[:splat][-1] != '/'[0] # file
-    begin  File.open(filename, "w") { |f| f.write params[:file]['file'].read }
-    rescue status 500; return "Could not store the file!"
+    begin
+      File.open(filename, "w") { |f|
+        f.write params[:file]['file'].read
+      }
+    rescue
+      status 500
+      return "Could not store the file!"
     end
   else # dir
-    begin  Dir.mkdir filename
-    rescue status 500; return "Could not create directory!"
+    begin
+      Dir.mkdir filename
+    rescue
+      status 501
+      return "Could not create directory!"
     end
   end
 end
@@ -50,12 +58,18 @@ end
 delete '/resources/*/' do
   filename = ressource_path(params[:splat])
   if File.directory?(filename)
-    begin  FileUtils.rm_rf filename
-    rescue status 500; return "Could not remove directory!"
+    begin
+      FileUtils.rm_rf filename
+    rescue
+      status 500
+      return "Could not remove directory!"
     end
   else # file
-    begin  File.delete filename
-    rescue status 500; return "Could not remove the file!"
+    begin
+      File.delete filename
+    rescue
+      status 500
+      return "Could not remove the file!"
     end
   end
 end
