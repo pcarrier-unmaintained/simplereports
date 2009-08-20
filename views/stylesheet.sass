@@ -1,38 +1,60 @@
-body
-  :color black
-  :background-color white
-  :font-family "Helvetica Neue", Helvetica, sans-serif
-  :font-size 10pt
-h1,h2,h3
-  :font-family Impact
-  :font-weight normal
-div,h1
+html,body,div
   :margin 0
   :padding 0
-#noticebar
-  :color white
-  :margin 0
-  :padding 0.2em
-  :font-size 8pt
-  &.loading
-    :background-color #048
-  &.notice
-    :background-color #084
-  &.error
-    :background-color #F00
-#main_interface
-  &.hidden
-    :display none
-  .browser
+h1,h2,h3,h4,h5,h6
+  :font-weight normal
+html,body
+  :background-color #191919
+  :color #DDD
+  :font-family "Helvetica Neue", Helvetica, sans-serif
+  :font-size 12pt
+a
+  :text-decoration none
+  :color #BBB
+  img
+    :border none
+  &:hover
     :color white
-    :background-color #333333
-    :margin 1em
+#header
+  h1
+    :font-size 2em
+    :margin 0
     :padding 0.5em
-    .files
-      :width 49%
-      :margin-left 50%
-    .folders
-      :width 49%
-      :float left
-    %div(style="clear:both;")
-@import visualize.sass
+    :padding-top 0.8em
+    a
+      :color #80FF00
+  ul,li
+    :margin 0
+    :padding 0
+  ul
+    :position absolute
+    :top 2em
+    :right 1em
+    :font-size 16px
+    li
+      :float right
+      :margin-right 1em
+      :list-style none
+      a
+        :padding 0.5em
+        :border 1px solid #151515
+        &:hover
+          :background-color #222
+#main
+  :color black
+  :background-color white
+  :padding 1em
+  a
+    :color #008040
+    &:hover
+      :color #80FF00
+#footer
+  :padding 0.5em
+  :background-color black
+.icon
+  :padding-left 20px
+  :background-repeat no-repeat
+  &.wiki
+    :background-image url('/icons/world_go.png')
+  &.help
+    :background-image url('/icons/help.png')

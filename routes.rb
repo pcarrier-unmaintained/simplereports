@@ -1,14 +1,9 @@
-helpers do
-  def project_name
-    options.pdescr
-  end
-  def ressource_path(name)
-    File.join(options.pstore, name)
-  end
-end
-
 get '/' do
   haml :index
+end
+
+get '/help' do
+  haml "= BlueCloth::new(File.read 'README.markdown').to_html"
 end
 
 get '/stylesheet.css' do
@@ -16,30 +11,23 @@ get '/stylesheet.css' do
   sass :stylesheet
 end
 
-get '/resources/*/?' do
-  Resource.get(ressource_path(params[:splat]))
-end
-
-put '/resources/*' do
-  begin
-    if params[:splat][-1,1] == '/' then
-      filename = ressource_path(params[:splat])[0..-2]
-      Resource.new(:dir, filename, nil)
-    else
-      filename = ressource_path(params[:splat])
-      Resource.new(:file, filename, params[:file]['file'])
-    end
-  rescue
+post '/albums/:name' do
+  @album = Album.new(:name => params[:name])
+  unless @album.save
     status 500
-    return "Could not create resource!"
+    return "Could not store"
   end
 end
 
-delete '/resources/*/?' do
-  begin
-    Resource.delete!(ressource_path(params[:splat]))
-  rescue
-    status 500
-    return "Could not remove resource!"
+delete '/albums/:name' do
+  @album = Album.get(params[:name])
+  if @album
+    unless @album.destroy
+      status 500
+      return "Could not delete"
+    end
+  else
+    status 404
+    return "No such album"
   end
 end
