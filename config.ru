@@ -10,7 +10,7 @@ configure do
   enable :sessions
   # project-related
   set :pname => 'SimpleReports',
-      :pversion => '0.1preview',
+      :pversion => '0.1prev',
       :pdescr => Proc.new {pname + " " + pversion},
       :pstore => File.join(File.dirname(__FILE__), 'store')
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3:///#{Dir.pwd}/data/dev.db")
@@ -35,4 +35,4 @@ require 'models.rb'
 require 'helpers.rb'
 require 'routes.rb'
 
-Sinatra::Application.run!
+Sinatra::Application.run!||run(Sinatra::Application)
