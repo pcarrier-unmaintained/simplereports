@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'rack'
 require 'sinatra'
 require 'haml'
 require 'bluecloth'

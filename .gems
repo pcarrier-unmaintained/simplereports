@@ -1,3 +1,4 @@
+rack
 sinatra
 haml --version '>= 2.2.2'
 bluecloth
