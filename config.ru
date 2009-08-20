@@ -2,7 +2,6 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'BlueCloth'
-require 'json'
 require 'dm-core'
 require 'dm-timestamps'
 
