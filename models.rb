@@ -1,5 +1,3 @@
-
-
 class Album
   include DataMapper::Resource
   property :id,         Serial
@@ -42,3 +40,4 @@ end
 
 #Dir.entries(filename).find_all{|e| e[0] != '.'[0]}.to_json()
 #File.open(filename, "r") { |f| f.read }
+DataMapper.auto_migrate!
