@@ -5,10 +5,6 @@ require 'bluecloth'
 require 'dm-core'
 require 'dm-timestamps'
 
-require 'models.rb'
-require 'helpers.rb'
-require 'routes.rb'
-
 configure do
   disable :run
   enable :sessions
@@ -34,5 +30,9 @@ end
 log = File.new("log/sinatra.log", "a")
 STDOUT.reopen(log)
 STDERR.reopen(log)
+
+require 'models.rb'
+require 'helpers.rb'
+require 'routes.rb'
 
 run Sinatra::Application
