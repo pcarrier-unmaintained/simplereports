@@ -1,0 +1,6 @@
+gems used through dev
+---------------------
+shotgun
+sinatra
+haml
+json
