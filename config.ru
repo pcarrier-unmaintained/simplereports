@@ -35,4 +35,4 @@ require 'models.rb'
 require 'helpers.rb'
 require 'routes.rb'
 
-Sinatra::Application.run!||run(Sinatra::Application)
+run Sinatra::Application
