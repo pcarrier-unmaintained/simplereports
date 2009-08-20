@@ -1,13 +1,16 @@
 html,body,div
   :margin 0
   :padding 0
+
 h1,h2,h3,h4,h5,h6
   :font-weight normal
+
 html,body
-  :background-color #191919
+  :background-color #222
   :color #DDD
   :font-family "Helvetica Neue", Helvetica, sans-serif
   :font-size 12pt
+
 a
   :text-decoration none
   :color #BBB
@@ -15,6 +18,7 @@ a
     :border none
   &:hover
     :color white
+
 #header
   h1
     :font-size 2em
@@ -23,23 +27,26 @@ a
     :padding-top 0.8em
     a
       :color #80FF00
-  ul,li
+  ul, li
     :margin 0
     :padding 0
   ul
     :position absolute
     :top 2em
-    :right 1em
+    :right 3em
     :font-size 16px
     li
       :float right
-      :margin-right 1em
+      :margin-right 2em
       :list-style none
       a
-        :padding 0.5em
-        :border 1px solid #151515
+        :padding 1em
+        :border 1px solid #1d1d1d
+        :background-color #282828
         &:hover
-          :background-color #222
+          :border-color black
+          :background-color #333
+
 #main
   :color black
   :background-color white
@@ -48,9 +55,11 @@ a
     :color #008040
     &:hover
       :color #80FF00
+
 #footer
   :padding 0.5em
   :background-color black
+
 .icon
   :padding-left 20px
   :background-repeat no-repeat

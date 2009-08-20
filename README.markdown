@@ -4,7 +4,7 @@
 
 This app was written by:
 
-* [gc3](mailto:pro@gcarrier.fr)
+* [gc3](mailto:pro@gcarrier.fr).
 
 It uses the following F/OSS:
 
