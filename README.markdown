@@ -8,8 +8,11 @@ This app was written by:
 
 It uses the following F/OSS:
 
+* [ruby](http://www.ruby-lang.org/),
+* [rack](http://rack.rubyforge.org/),
 * [sinatra](http://www.sinatrarb.com/),
 * [haml & sass](http://haml-lang.com/),
-* [DataMapper](http://datamapper.org/),
 * [BlueCloth](http://www.deveiate.org/projects/BlueCloth),
+* [DataMapper](http://datamapper.org/),
+* [SQLite](http://sqlite.org/),
 * [Silk Icons](http://www.famfamfam.com/lab/icons/silk/).
