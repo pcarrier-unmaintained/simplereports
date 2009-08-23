@@ -29,7 +29,8 @@ get '/analysis/:id/:action.html' do
       @analysis.save
     end
     if @analysis.album # we still might have no album at all
-      @reports = @analysis.album.reports
+      @current_album = @analysis.album
+      @reports = @current_album.reports
     end
     @analyzed = @analysis.reports
     case params[:action]

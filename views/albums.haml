@@ -7,7 +7,7 @@
         %th
     %tbody
       - for album in @albums
-        %tr
+        %tr{:class => "#{'active' if (album == @current_album)}"}
           %td
             %a(href="album/#{album.id}")
               = album.name

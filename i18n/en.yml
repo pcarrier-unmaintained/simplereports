@@ -8,6 +8,7 @@ report:
   filefield: File
   submit: Add
   none: No report available.
+  in_album: in album
 album:
   sections: Albums
   name: Name

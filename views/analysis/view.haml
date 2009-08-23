@@ -14,7 +14,7 @@
     %h2
       %span.album.icon= i18n.album.section
     .inner
-      #albums-list
+      .list
         = haml :albums, :layout => false
       .add
         %h3.add_album.icon= i18n.album.add
@@ -26,9 +26,10 @@
             %input#album-name(type='text' name='name')
   .reports
     %h2
-      %span.report.icon= i18n.report.section
+      %span.report.icon
+        = "#{i18n.report.section} #{i18n.report.in_album} #{@current_album.name}"
     .inner
-      #reports-list
+      .list
         = haml :reports, :layout => false
       .add
         %h3.add_report.icon= i18n.report.add

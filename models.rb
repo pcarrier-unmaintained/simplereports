@@ -34,5 +34,3 @@ class Analysis
   has n, :reports, :through => Resource
   belongs_to :album
 end
-
-#File.open(filename, "r") { |f| f.read }
