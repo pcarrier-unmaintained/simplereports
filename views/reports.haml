@@ -1,0 +1,29 @@
+%table
+  %thead
+    %tr
+      %th Name
+      %th Created at
+      %th
+  %tbody
+    %tr
+      %td
+        Example
+      %td
+        Hop
+      %td.actions
+        %img(src='/icons/add.png' alt="add to analysis")
+        %img(src='/icons/magnifier.png' alt="get as XML")
+        %img(src='/icons/delete.png' alt="delete")
+    - if @reports
+      - for report in @reports
+        %tr
+          %td
+            = report.name
+          %td
+            = report.created_at
+          %td.actions
+            %img(src='/icons/add.png' alt="add to analysis")
+            %img(src='/icons/magnifier.png' alt="get as XML")
+            %img(src='/icons/delete.png' alt="delete")
+:javascript
+  //alert("loaded reports");

@@ -1,3 +1,8 @@
+require 'db.rb'
+
+# Singular = Plural (no removal of the 's')
+Extlib::Inflection.singular_word("analysis", "analysis")
+
 class Album
   include DataMapper::Resource
   property :id,         Serial
@@ -5,16 +10,7 @@ class Album
   property :created_at, DateTime
   property :updated_at, DateTime
   has n, :reports
-end
-
-# Stores the 1..N <-> 1..N relation between Report and Diff
-class Diffization
-  include DataMapper::Resource
-  property :id,         Serial
-  property :created_at, DateTime
-  property :updated_at, DateTime
-  belongs_to :report
-  belongs_to :album
+  has n, :analysis
 end
 
 class Report
@@ -25,19 +21,16 @@ class Report
   property :created_at, DateTime
   property :updated_at, DateTime
   belongs_to :album
-  has n, :diffizations
-  has n, :diffs, :through => :diffizations
+  has n, :analysis, :through => Resource
 end
 
-class Diff
+class Analysis
   include DataMapper::Resource
   property :id,         Serial
   property :created_at, DateTime
   property :updated_at, DateTime
-  has n, :diffizations
-  has n, :reports, :through => :diffizations
+  has n, :reports, :through => Resource
+  belongs_to :album
 end
 
-#Dir.entries(filename).find_all{|e| e[0] != '.'[0]}.to_json()
 #File.open(filename, "r") { |f| f.read }
-DataMapper.auto_migrate!

@@ -1,5 +1,35 @@
 get '/' do
-  haml :index
+  @analysis = Analysis.new
+  if @analysis.save
+    redirect "/analysis/#{@analysis.id}/view.html"
+  else
+    status 500
+    return "Could not create analysis"
+  end
+end
+
+get '/analysis/:id/:action.html' do
+  @analysis = Analysis.get(params[:id])
+  if @analysis
+    @albums = Album.get(:all)
+    if @analysis.album
+      @reports = @analysis.album.reports
+    end
+    @analyzed = @analysis.reports
+    case params[:action]
+    when 'albums'
+      haml :albums, :layout => false
+    when 'reports'
+      haml :reports, :layout => false
+    when 'analyzed'
+      haml :'analysis/list', :layout => false
+    else
+      haml :'analysis/view'
+    end
+  else
+    status 500
+    return "Could not find analysis"
+  end
 end
 
 get '/help' do
@@ -11,9 +41,11 @@ get '/stylesheet.css' do
   sass :stylesheet
 end
 
-post '/albums/:name' do
+post '/albums' do
   @album = Album.new(:name => params[:name])
-  unless @album.save
+  if @album.save
+    redirect back
+  else
     status 500
     return "Could not store"
   end
@@ -22,7 +54,9 @@ end
 delete '/albums/:name' do
   @album = Album.get(params[:name])
   if @album
-    unless @album.destroy
+    if @album.destroy
+      redirect back
+    else
       status 500
       return "Could not delete"
     end

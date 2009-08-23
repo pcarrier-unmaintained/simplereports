@@ -7,9 +7,9 @@ h1,h2,h3,h4,h5,h6
 
 html,body
   :background-color #222
-  :color #DDD
+  :color #ddd
   :font-family "Helvetica Neue", Helvetica, sans-serif
-  :font-size 12pt
+  :font-size 10pt
 
 a
   :text-decoration none
@@ -26,22 +26,22 @@ a
     :padding 0.5em
     :padding-top 0.8em
     a
-      :color #80FF00
+      :color #8f0
   ul, li
     :margin 0
     :padding 0
   ul
     :position absolute
-    :top 2em
-    :right 1em
+    :top 1.5em
+    :right 0
     :font-size 16px
     li
-      :float right
+      :float left
       :margin-right 1em
       :list-style none
       a
-        :padding 0.7em
-        :border 1px solid #1d1d1d
+        :padding 0.5em
+        :border 2px solid #1d1d1d
         :background-color #282828
         &:hover
           :border-color black
@@ -50,20 +50,112 @@ a
 #main
   :color black
   :background-color white
-  :padding 1em
+  :padding 2em
   a
-    :color #008040
+    :color #084
     &:hover
-      :color #80FF00
+      :color #8f0
+  h1, h2, h3
+    :margin 0
+    :color #f80
+    :font-weight bold
+  h1
+    :margin-bottom 1em
+  h2
+    :padding 0.5em
+    :font-size 1em
+    :background-color #222
+  h3
+    :font-size 1em
+    :border-bottom 1px solid #840
+    :margin-bottom 0.5em
+  #quick-links
+    :margin-bottom 0.5em
+    :border 2px solid #ddd
+    :background-color #eee
+    h2
+      :color black
+      :font-size 1em
+      :font-weight bold
+      :background-color inherit
+      :padding 0
+      :display inline
+      :float left
+    ul
+      :list-style none
+      :display inline
+      li
+        :float left
+        :margin-left 1em
+  #messagebar
+    :margin-bottom 0.5em
+    :border 1px solid black
+    &.loading
+      :background-color #C9CBFB
+      :border-color #66f
+    &.notice
+      :background-color #CBFCC4
+      :border-color #0f0
+    &.error
+      :background-color #EC6E69
+      :border-color #f00
+  table
+    :width 100%
+    :border-spacing 0
+    :margin-bottom 1em
+    td
+      :border-bottom 1px solid #444
+      &.actions
+        :text-align right
+    th
+      :color #8f0
+      :background-color #444
+      :font-weight normal
+  #browser
+    .albums, .reports
+      :width 49%
+      :margin-bottom 1em
+    .albums
+      :float left
+    .reports
+      :float right
+    .inner
+      :padding 1em
+      :border 2px solid #222
+    .add
+      label
+        :display block
+        :float left
+        :width 5em
+      .submit
+        :float right
 
 #footer
   :padding 0.5em
   :background-color black
 
+.clear
+  :clear both
+
 .icon
   :padding-left 20px
   :background-repeat no-repeat
+  :background-position center left
   &.wiki
     :background-image url('/icons/world_go.png')
   &.help
     :background-image url('/icons/help.png')
+  &.album
+    :background-image url('/icons/folder.png')
+  &.report
+    :background-image url('/icons/report.png')
+  &.add_album
+    :background-image url('/icons/folder_add.png')
+  &.add_report
+    :background-image url('/icons/report_add.png')
+  &.analyzed
+    :background-image url('/icons/basket.png')
+  &.results
+    :background-image url('/icons/chart_bar.png')
+  &.accept
+    :background-image url('/icons/accept.png')

@@ -1,0 +1,18 @@
+%table
+  %thead
+    %tr
+      %th Name
+      %th Created at
+      %th
+  %tbody
+    - if @albums
+      - for album in @albums
+        %tr
+          %td
+            = album.name
+          %td
+            = album.created_at
+          %td.actions
+            %img(src='/icons/delete.png' alt="delete")
+:javascript
+  //alert("loaded albums");

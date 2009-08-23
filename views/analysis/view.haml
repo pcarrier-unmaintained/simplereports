@@ -1,0 +1,49 @@
+#quick-links
+  %h2 Jump to:
+  %ul
+    %li
+      %a.analyzed.icon(href='#analyzed-reports') Analyzed reports
+    %li
+      %a.results.icon(href='#results') Results
+    %li
+  .clear
+#browser
+  .albums
+    %h2
+      %span.album.icon Albums
+    .inner
+      #albums-list
+        = haml :albums, :layout => false
+      .add
+        %h3.add_album.icon Add an album
+        %form(action='/albums' method='post')
+          .submit
+            %input.accept.icon(type='submit' value='Add')
+          .name
+            %label(for='album-name') Name
+            %input#album-name(type='text' name='name')
+  .reports
+    %h2
+      %span.report.icon Reports
+    .inner
+      #reports-list
+        = haml :reports, :layout => false
+      .add
+        %h3.add_report.icon Add a report
+        %form(action='/reports' method='post')
+          .submit
+            %input.accept.icon(type='submit' value='Upload')
+          .name
+            %label(for='report-name') Name
+            %input#report-name(type='text' name='name')
+          .file
+            %label(for='report-file') File
+            %input#report-file(type='file' name='file')
+.clear
+%h2
+  %span.analyzed.icon Analyzed reports
+#analyzed-reports
+%h2
+  %span.results.icon Results
+#results
+%script(src='/js/analysis.js')

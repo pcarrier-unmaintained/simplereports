@@ -1,10 +1,12 @@
 # README
 
+## Usage
+
+Whoever has time for this, please edit `README.markdown`. Ideally, we should put a screencast here.
+
 ## Credits
 
-This app was written by:
-
-* [gc3](mailto:pro@gcarrier.fr).
+This app was written in 2009 by the PLM Client Core team.
 
 It uses the following F/OSS:
 

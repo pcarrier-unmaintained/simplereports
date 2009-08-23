@@ -1,0 +1,18 @@
+%table
+  %thead
+    %tr
+      %th Name
+      %th Created at
+      %th Actions
+  %tbody
+    - if @reports
+      - for report in @reports
+        %tr
+          %td
+            = report.name
+          %td
+            = report.created_at
+          %td.actions
+            %img(src='/icons/delete.png' alt="delete")
+:javascript
+  //alert("loaded reports");
