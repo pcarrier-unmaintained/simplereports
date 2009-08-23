@@ -5,5 +5,5 @@ end
 
 task :populate do
   require 'fixtures.rb'
-  50.of {Album.gen}
+  20.of {Album.gen}
 end

@@ -1,8 +1,7 @@
 require 'rubygems'
 require 'rack'
 require 'sinatra'
-require 'haml'
-require 'bluecloth'
+require 'sinatra/r18n'
 
 configure do
   disable :run
@@ -10,7 +9,7 @@ configure do
   # project-related
   set :pname => 'SimpleReports',
       :pversion => '0.1prev',
-      :pdescr => Proc.new {pname + " " + pversion},
+      :pdescr => Proc.new {pname + " " + pversion}
 end
 
 configure :production do
@@ -22,8 +21,6 @@ log = File.new("log/sinatra.log", "a")
 STDOUT.reopen(log)
 STDERR.reopen(log)
 
-require 'models.rb'
-require 'helpers.rb'
 require 'routes.rb'
 
 run Sinatra::Application

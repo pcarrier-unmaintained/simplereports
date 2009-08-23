@@ -1,29 +1,22 @@
-%table
-  %thead
-    %tr
-      %th Name
-      %th Created at
-      %th
-  %tbody
-    %tr
-      %td
-        Example
-      %td
-        Hop
-      %td.actions
-        %img(src='/icons/add.png' alt="add to analysis")
-        %img(src='/icons/magnifier.png' alt="get as XML")
-        %img(src='/icons/delete.png' alt="delete")
-    - if @reports
+- if @reports
+  %table
+    %thead
+      %tr
+        %th= i18n.report.name
+        %th= i18n.report.creation_date
+        %th
+    %tbody
       - for report in @reports
         %tr
           %td
             = report.name
           %td
-            = report.created_at
+            = i18n.l report.created_at
           %td.actions
             %img(src='/icons/add.png' alt="add to analysis")
             %img(src='/icons/magnifier.png' alt="get as XML")
             %img(src='/icons/delete.png' alt="delete")
+- else
+  %i= i18n.report.none
 :javascript
   //alert("loaded reports");

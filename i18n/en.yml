@@ -1,0 +1,23 @@
+browser:
+  section: Browser
+report:
+  section: Reports
+  name: Name
+  creation_date: Created at
+  add: Add a report
+  filefield: File
+  submit: Add
+  none: No report available.
+album:
+  sections: Albums
+  name: Name
+  creation_date: Created at
+  add: Add an album
+  none: No album available.
+  submit: Upload
+analyzed:
+  section: Analyzed reports
+results:
+  section: Results
+quicklinks:
+  label: Jump to:

@@ -1,3 +1,15 @@
+require 'rubygems'
+
+require 'haml'
+require 'bluecloth'
+
+require 'models.rb'
+require 'helpers.rb'
+
+before do
+  session[:locale] = params[:locale] if params[:locale]
+end
+
 get '/' do
   @analysis = Analysis.new
   if @analysis.save
@@ -11,8 +23,12 @@ end
 get '/analysis/:id/:action.html' do
   @analysis = Analysis.get(params[:id])
   if @analysis
-    @albums = Album.get(:all)
-    if @analysis.album
+    @albums = Album.all
+    unless @analysis.album
+      @analysis.album = @albums[0]
+      @analysis.save
+    end
+    if @analysis.album # we still might have no album at all
       @reports = @analysis.album.reports
     end
     @analyzed = @analysis.reports
@@ -29,6 +45,24 @@ get '/analysis/:id/:action.html' do
   else
     status 500
     return "Could not find analysis"
+  end
+end
+
+get '/analysis/:analysis/album/:album' do
+  @analysis = Analysis.get(params[:analysis])
+  if @analysis
+    @album = Album.get(params[:album])
+    if @album
+      @analysis.album = @album
+      @analysis.save
+      redirect back
+    else
+      status 500
+      return "Could not find album \##{params[:album]}"
+    end
+  else
+    status 500
+    return "Could not find analysis \#{params[:analysis]}"
   end
 end
 

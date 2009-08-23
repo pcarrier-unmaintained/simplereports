@@ -1,0 +1,23 @@
+browser:
+  section: Navigateur
+report:
+  section: Rapports
+  name: Nom
+  creation_date: Créé à
+  add: Ajouter un rapport
+  filefield: Fichier
+  submit: Envoyer
+  none: Aucun rapport disponible.
+album:
+  section: Albums
+  name: Nom
+  creation_date: Créé à
+  add: Ajouter un album
+  none: Aucun album disponible.
+  submit: Ajouter
+analyzed:
+  section: Rapports analysés
+results:
+  section: Résultats
+quicklinks:
+  label: Aller à :

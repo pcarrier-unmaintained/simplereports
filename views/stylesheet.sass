@@ -1,6 +1,9 @@
-html,body,div
+=zeroed
   :margin 0
   :padding 0
+
+html,body,div
+  +zeroed
 
 h1,h2,h3,h4,h5,h6
   :font-weight normal
@@ -28,8 +31,7 @@ a
     a
       :color #8f0
   ul, li
-    :margin 0
-    :padding 0
+    +zeroed
   ul
     :position absolute
     :top 1.5em
@@ -62,6 +64,7 @@ a
   h1
     :margin-bottom 1em
   h2
+    :margin-top 0.5em
     :padding 0.5em
     :font-size 1em
     :background-color #222
@@ -70,10 +73,13 @@ a
     :border-bottom 1px solid #840
     :margin-bottom 0.5em
   #quick-links
-    :margin-bottom 0.5em
+    :position fixed
+    :bottom 0
+    :right 0
     :border 2px solid #ddd
     :background-color #eee
     h2
+      +zeroed
       :color black
       :font-size 1em
       :font-weight bold
@@ -82,9 +88,11 @@ a
       :display inline
       :float left
     ul
+      +zeroed
       :list-style none
       :display inline
       li
+        +zeroed
         :float left
         :margin-left 1em
   #messagebar
@@ -112,6 +120,10 @@ a
       :background-color #444
       :font-weight normal
   #browser
+    #albums-list, #reports-list
+      :max-height 20em
+      :overflow auto
+      :margin-bottom 1em
     .albums, .reports
       :width 49%
       :margin-bottom 1em
@@ -145,6 +157,8 @@ a
     :background-image url('/icons/world_go.png')
   &.help
     :background-image url('/icons/help.png')
+  &.browser
+    :background-image url('/icons/report_magnify.png')
   &.album
     :background-image url('/icons/folder.png')
   &.report
@@ -159,3 +173,7 @@ a
     :background-image url('/icons/chart_bar.png')
   &.accept
     :background-image url('/icons/accept.png')
+  &.english
+    :background-image url('/icons/flags/us.png')
+  &.french
+    :background-image url('/icons/flags/fr.png')

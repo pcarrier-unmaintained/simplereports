@@ -1,18 +1,21 @@
-%table
-  %thead
-    %tr
-      %th Name
-      %th Created at
-      %th
-  %tbody
-    - if @albums
+- if @albums
+  %table
+    %thead
+      %tr
+        %th= i18n.album.name
+        %th= i18n.album.creation_date
+        %th
+    %tbody
       - for album in @albums
         %tr
           %td
-            = album.name
+            %a(href="album/#{album.id}")
+              = album.name
           %td
-            = album.created_at
+            = i18n.l album.created_at
           %td.actions
             %img(src='/icons/delete.png' alt="delete")
+- else
+  %i= i18n.album.none
 :javascript
   //alert("loaded albums");

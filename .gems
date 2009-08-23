@@ -1,5 +1,6 @@
 rack
 sinatra
+sinatra-r18n
 haml --version '>= 2.2.2'
 bluecloth
 dm-core

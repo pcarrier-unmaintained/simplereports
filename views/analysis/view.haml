@@ -1,49 +1,51 @@
 #quick-links
-  %h2 Jump to:
+  %h2= i18n.quicklinks.label
   %ul
     %li
-      %a.analyzed.icon(href='#analyzed-reports') Analyzed reports
+      %a.browser.icon(href='#browser')= i18n.browser.section
     %li
-      %a.results.icon(href='#results') Results
+      %a.analyzed.icon(href='#analyzed-reports')= i18n.analyzed.section
     %li
-  .clear
+      %a.results.icon(href='#results')= i18n.results.section
+%h2
+  %span.browser.icon= i18n.browser.section
 #browser
   .albums
     %h2
-      %span.album.icon Albums
+      %span.album.icon= i18n.album.section
     .inner
       #albums-list
         = haml :albums, :layout => false
       .add
-        %h3.add_album.icon Add an album
+        %h3.add_album.icon= i18n.album.add
         %form(action='/albums' method='post')
           .submit
-            %input.accept.icon(type='submit' value='Add')
+            %input.accept.icon{:type => 'submit', :value => i18n.album.submit}
           .name
-            %label(for='album-name') Name
+            %label(for='album-name')= i18n.album.name
             %input#album-name(type='text' name='name')
   .reports
     %h2
-      %span.report.icon Reports
+      %span.report.icon= i18n.report.section
     .inner
       #reports-list
         = haml :reports, :layout => false
       .add
-        %h3.add_report.icon Add a report
+        %h3.add_report.icon= i18n.report.add
         %form(action='/reports' method='post')
           .submit
-            %input.accept.icon(type='submit' value='Upload')
+            %input.accept.icon{:type => 'submit', :value => i18n.report.submit}
           .name
-            %label(for='report-name') Name
+            %label(for='report-name')= i18n.report.name
             %input#report-name(type='text' name='name')
           .file
-            %label(for='report-file') File
+            %label(for='report-file')= i18n.report.filefield
             %input#report-file(type='file' name='file')
 .clear
 %h2
-  %span.analyzed.icon Analyzed reports
+  %span.analyzed.icon= i18n.analyzed.section
 #analyzed-reports
 %h2
-  %span.results.icon Results
+  %span.results.icon= i18n.results.section
 #results
 %script(src='/js/analysis.js')

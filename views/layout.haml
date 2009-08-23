@@ -4,19 +4,20 @@
   %head
     %title=project_name
     %link(rel='stylesheet' type='text/css' href='/stylesheet.css')
-    / /[if IE]
-    /   %script(src='/libs/excanvas.compiled.js')
-    %script(src='http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js')
-    / %script(src='/libs/base64.js')
-    / %script(src='/libs/canvas2image.js')
-    / %script(src='/libs/canvastext.js')
-    / %script(src='/libs/flotr.js')
-    / %script(src='/js/main.js')
+    / %script(src='http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js')
+    %script(src='/js/prototype.js')
+    %script(src='/js/tablesort.js')
   %body
     #header
       %h1
         %a(href='/')=project_name
       %ul#navigation
+        %li
+          %a(href='?locale=en')
+            %span.english.icon English
+        %li
+          %a(href='?locale=fr')
+            %span.french.icon Français
         %li
           %a(href='http://wiki/VROUMS')
             %span.wiki.icon Wiki
