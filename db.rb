@@ -2,7 +2,7 @@ require 'dm-core'
 require 'dm-timestamps'
 
 if ENV['DATABASE_URL']
-  DataMapper.setup(ENV['DATABASE_URL'])
+  DataMapper.setup(:default, ENV['DATABASE_URL'])
 else
   Env = ENV['RAILS_ENV'] || ENV['MERB_ENV'] || ENV['RACK_ENV'] || 'development'
   case Env
