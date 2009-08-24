@@ -20,7 +20,7 @@ It uses the following F/OSS:
 * [rack](http://rack.rubyforge.org/),
 * [sinatra](http://www.sinatrarb.com/),
 * [haml & sass](http://haml-lang.com/),
-* [BlueCloth](http://www.deveiate.org/projects/BlueCloth),
 * [DataMapper](http://datamapper.org/),
 * [SQLite](http://sqlite.org/),
+* [BlueCloth](http://www.deveiate.org/projects/BlueCloth),
 * [Silk Icons & Flags Icons](http://www.famfamfam.com/lab/icons/silk/).
