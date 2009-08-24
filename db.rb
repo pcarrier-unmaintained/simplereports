@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'dm-core'
+require 'dm-constraints'
 require 'dm-timestamps'
 
 if ENV['DATABASE_URL']

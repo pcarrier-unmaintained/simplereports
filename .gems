@@ -5,5 +5,6 @@ haml --version '>= 2.2.2'
 bluecloth
 dm-core
 dm-timestamps
+dm-constraints
 dm-sweatshop
 ParseTree

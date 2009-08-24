@@ -1,7 +1,7 @@
 require 'db'
 
 # Singular = Plural (no removal of the 's')
-Extlib::Inflection.singular_word("analysis", "analysis")
+Extlib::Inflection.singular_word('analysis', 'analysis')
 
 class Album
   include DataMapper::Resource
@@ -9,8 +9,8 @@ class Album
   property :name,       String, :unique_index => true
   property :created_at, DateTime
   property :updated_at, DateTime
-  has n, :reports
-  has n, :analysis
+  has n, :reports, :constraint => :destroy
+  has n, :analysis, :constraint => :set_nil
   default_scope(:default).update(:order => [:name])
 end
 
@@ -22,7 +22,7 @@ class Report
   property :created_at, DateTime
   property :updated_at, DateTime
   belongs_to :album
-  has n, :analysis, :through => Resource
+  has n, :analysis, :through => Resource, :constraint => :destroy
   default_scope(:default).update(:order => [:name])
 end
 
@@ -31,6 +31,6 @@ class Analysis
   property :id,         Serial
   property :created_at, DateTime
   property :updated_at, DateTime
-  has n, :reports, :through => Resource
+  has n, :reports, :through => Resource, :constraint => :destroy
   belongs_to :album
 end

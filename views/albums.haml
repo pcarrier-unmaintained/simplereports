@@ -7,15 +7,14 @@
         %th
     %tbody
       - for album in @albums
-        %tr{:class => "#{'active' if (album == @current_album)}"}
+        %tr{:class => ('active' if album == @current_album)}
           %td
-            %a(href="album/#{album.id}")
+            %a(href="album/#{album.id}" rel="nofollow")
               = album.name
           %td
             = i18n.l album.created_at
           %td.actions
-            %img(src='/icons/delete.png' alt="delete")
+            %a.delete.icon(href="/albums/#{album.id}/delete" rel="nofollow")
+              = i18n.album.delete
 - else
   %i= i18n.album.none
-:javascript
-  //alert("loaded albums");

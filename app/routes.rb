@@ -5,19 +5,11 @@ require 'bluecloth'
 require 'models'
 
 class Server
-    
+  
+  set :root, File.join(File.dirname(__FILE__),'..')
+  
   before do
     session[:locale] = params[:locale] if params[:locale]
-  end
-  
-  get '/' do
-    @analysis = Analysis.new
-    if @analysis.save
-      redirect "/analysis/#{@analysis.id}/view.html"
-    else
-      status 500
-      return "Could not create analysis"
-    end
   end
   
   get '/analysis/:id/:action.html' do
@@ -67,6 +59,66 @@ class Server
     end
   end
   
+  post '/albums' do
+    @album = Album.new(:name => params[:name])
+    if @album.save
+      redirect back
+    else
+      status 500
+      return "Could not store the album"
+    end
+  end
+  
+  get '/albums/:id/delete' do
+    @album = Album.get(params[:id])
+    if @album
+      if @album.destroy
+        redirect back
+      else
+        status 500
+        return "Could not delete the album"
+      end
+    else
+      status 404
+      return "Album not found"
+    end
+  end
+  
+  post '/albums/:id/add' do
+    @album = Album.get(params[:id])
+    if @album
+      @report = Report.new(:name => params[:name])
+    else
+      status 404
+      return "Could not find album \##{params[:album]}"
+    end
+  end
+  
+  get '/reports/:id/delete' do
+    @report = Report.get(params[:id])
+    if @report
+      if @report.destroy
+        redirect back
+      else
+        status 500
+        return "Could not delete the report"
+      end
+    else
+      status 404
+      return "Report not found"
+    end
+  end
+  
+  get '/' do
+    @analysis = Analysis.new
+    if @analysis.save
+      redirect "/analysis/#{@analysis.id}/view.html"
+    else
+      status 500
+      return "Could not create analysis"
+    end
+  end
+  
   get '/help' do
     haml "= BlueCloth::new(File.read 'README.markdown').to_html"
   end
@@ -76,29 +128,4 @@ class Server
     sass :stylesheet
   end
   
-  post '/albums' do
-    @album = Album.new(:name => params[:name])
-    if @album.save
-      redirect back
-    else
-      status 500
-      return "Could not store"
-    end
-  end
-  
-  delete '/albums/:name' do
-    @album = Album.get(params[:name])
-    if @album
-      if @album.destroy
-        redirect back
-      else
-        status 500
-        return "Could not delete"
-      end
-    else
-      status 404
-      return "No such album"
-    end
-  end
-
 end

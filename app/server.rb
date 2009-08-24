@@ -7,22 +7,22 @@ require 'identitymap'
 
 class Server < ::Sinatra::Base
   use ::Dickpunch::IdentityMap
+  register ::Sinatra::R18n
   
   configure do
     disable :run
     enable :sessions
-    # project-related
     set :pname => 'SimpleReports',
         :pversion => '0.1prev',
-        :pdescr => proc {pname + " " + pversion}
+        :pdescr => proc {pname + " " + pversion},
+        :root => File.join(File.dirname(__FILE__),"..")
   end
 
   configure :production do
     set :haml => {:ugly => true},
         :sass => {:style => :compressed}
   end
-  
+
   load 'helpers.rb'
   load 'routes.rb'
-  
 end

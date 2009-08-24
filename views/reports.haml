@@ -13,10 +13,9 @@
           %td
             = i18n.l report.created_at
           %td.actions
-            %img(src='/icons/add.png' alt="add to analysis")
-            %img(src='/icons/magnifier.png' alt="get as XML")
-            %img(src='/icons/delete.png' alt="delete")
+            %img(src='/icons/add.png')
+            %img(src='/icons/magnifier.png')
+            %a.delete.icon(href="/reports/#{album.id}/delete" rel="nofollow")
+              = i18n.report.delete
 - else
   %i= i18n.report.none
-:javascript
-  //alert("loaded reports");
