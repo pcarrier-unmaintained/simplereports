@@ -1,4 +1,4 @@
-require 'models.rb'
+require 'models'
 require 'dm-sweatshop'
 
 Album.fixture {{

@@ -3,8 +3,8 @@ require 'rubygems'
 require 'haml'
 require 'bluecloth'
 
-require 'models.rb'
-require 'helpers.rb'
+require 'models'
+require 'helpers'
 
 before do
   session[:locale] = params[:locale] if params[:locale]

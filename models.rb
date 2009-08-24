@@ -1,4 +1,4 @@
-require 'db.rb'
+require 'db'
 
 # Singular = Plural (no removal of the 's')
 Extlib::Inflection.singular_word("analysis", "analysis")

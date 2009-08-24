@@ -1,9 +1,9 @@
 task :migrate do
-  require 'models.rb'
+  require 'models'
   DataMapper.auto_migrate!
 end
 
 task :populate do
-  require 'fixtures.rb'
+  require 'fixtures'
   20.of {Album.gen}
 end

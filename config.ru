@@ -2,6 +2,7 @@ require 'rubygems'
 require 'rack'
 require 'sinatra'
 require 'sinatra/r18n'
+require 'identitymap'
 
 configure do
   disable :run
@@ -21,6 +22,10 @@ log = File.new("log/sinatra.log", "a")
 STDOUT.reopen(log)
 STDERR.reopen(log)
 
-require 'routes.rb'
+require 'routes'
 
-run Sinatra::Application
+class Server < ::Sinatra::Base
+  use ::Dickpunch::IdentityMap
+end
+
+run Server
