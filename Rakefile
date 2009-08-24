@@ -1,5 +1,5 @@
 task :migrate do
-  require 'models'
+  require 'app/models'
   DataMapper.auto_migrate!
 end
 

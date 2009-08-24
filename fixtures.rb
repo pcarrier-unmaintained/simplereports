@@ -1,4 +1,4 @@
-require 'models'
+require 'app/models'
 require 'dm-sweatshop'
 
 Album.fixture {{
